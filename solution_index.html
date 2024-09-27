@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Activity - Coding in JavaScript</title>
+  </head>
+  <body>
+    <h1>Lab - Patterns and Array Manipulation</h1>
+
+    <h2>Task 1: Triangle Pattern with For Loop</h2>
+    <p>
+      Use JavaScript to create the following pattern:<br />
+      *<br />
+      **<br />
+      ***<br />
+      ****<br />
+      *****<br />
+    </p>
+    <script>
+      // Task 1: Function to generate the pattern
+
+      function createPattern(n) {
+        let output = "";
+        for (let i = 1; i <= n; i++) {
+          let row = "";
+          for (let j = 1; j <= i; j++) {
+            row += "*";
+          }
+          output += row + "\n";
+        }
+        console.log(output);
+      }
+    </script>
+
+    <h2>Task 2: FizzBuzz</h2>
+    <p>
+      For multiples of three, output "Fizz", for multiples of five, output
+      "Buzz", and for multiples of both three and five, output "FizzBuzz".
+    </p>
+    <script>
+      // Task 2: FizzBuzz function
+      function fizzbuzz(numbers) {
+        for (let i in numbers) {
+          if (numbers[i] % 15 === 0) {
+            numbers[i] = "FizzBuzz";
+          } else if (numbers[i] % 3 === 0) {
+            numbers[i] = "Fizz";
+          } else if (numbers[i] % 5 === 0) {
+            numbers[i] = "Buzz";
+          } else {
+            numbers[i] = numbers[i];
+          }
+        }
+        console.log(numbers);
+      }
+    </script>
+
+    <h2>Task 3: Count Occurrences in an Array</h2>
+    <p>
+      Given an array and an element x, count how many times x appears in the
+      array.
+    </p>
+    <script>
+      // Task 3: Function to count occurrences of x in array
+      function count(numbers, n) {
+        let count = 0;
+        for (let i in numbers) {
+          if (numbers[i] == n) {
+            count++;
+          }
+        }
+        console.log(count);
+      }
+    </script>
+
+    <h2>Task 4: Remove Duplicates from a Sorted Array</h2>
+    <p>
+      Remove the duplicates in-place such that each element appears only once
+      and return the new length.
+    </p>
+    <script>
+      // Task 4: Function to remove duplicates from array
+      // Write your code here
+      function removeDuplicates(numbers) {
+        let i = 0;
+        for (let j = 0; j < numbers.length; j++) {
+          if (i === 0 || numbers[j] !== numbers[i - 1]) {
+            numbers[i] = numbers[j];
+            i++;
+          }
+        }
+        numbers.length = i;
+        console.log(numbers);
+      }
+
+      function removeDuplicates2(numbers) {
+        let i = 0;
+        for (let j = 0; j < numbers.length; j++) {
+          if (i === 0 || numbers[j] !== numbers[i - 1]) {
+            numbers[i++] = numbers[j];
+          }
+        }
+        numbers.length = i;
+        console.log(numbers);
+      }
+    </script>
+
+    <h2>Task 5: Reverse an Array In Place</h2>
+    <p>Write a function to reverse an array in place.</p>
+    <script>
+      // Task 5: Function to reverse the array
+      // Write your code here
+      function reverseArray(numbers) {
+        let start = 0;
+        let end = numbers.length - 1;
+
+        while (start < end) {
+          let temp = numbers[start];
+          numbers[start] = numbers[end];
+          numbers[end] = temp;
+
+          start++;
+          end--;
+        }
+        console.log(numbers);
+      }
+
+      function reverArray2(numbers) {
+        let start = 0;
+        let end = numbers.length - 1;
+        while (start < end) {
+          [numbers[start], numbers[end]] = [numbers[end], numbers[start]];
+          start++;
+          end--;
+        }
+        console.log(numbers);
+      }
+    </script>
+
+    <h2>Task 6: Sum of Even Numbers in an Array</h2>
+    <p>Return the sum of all even numbers in the array.</p>
+    <script>
+      // Task 6: Function to sum even numbers
+      // Write your code here
+      function evenSum(numbers) {
+        let sum = 0;
+        for (let x in numbers) {
+          if (numbers[x] % 2 === 0) {
+            sum += numbers[x];
+          }
+        }
+        console.log(sum);
+      }
+    </script>
+
+    <script>
+      //Function calls
+      createPattern(5);
+      fizzbuzz([1, 2, 3, 4, 5, 15]);
+      count([1, 2, 3, 2, 2, 4], 2);
+      removeDuplicates([2, 2, 1, 4]);
+      reverseArray([1, 2, 3, 4, 5, 15]);
+      reverArray2([1, 2, 3, 4, 5, 15]);
+      evenSum([2, 2, 1, 4]);
+    </script>
+  </body>
+</html>
